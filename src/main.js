@@ -1,6 +1,7 @@
 "use strict";
 
 (function () {
+  const COUNT_TASK = 3;
   const templateCustomMenu = () => {
     return (
       `<section class="control__btn-wrap">
@@ -367,8 +368,8 @@
     `);
   };
 
-  const render = (container, template, how = `beforeend`) => {
-    container.insertAdjacentHTML(how, template);
+  const render = (container, template, place = `beforeend`) => {
+    container.insertAdjacentHTML(place, template);
   };
 
   const main = document.querySelector(`.main`);
@@ -390,7 +391,7 @@
 
   render(taskContainer, taskForm, `afterbegin`);
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < COUNT_TASK; i++) {
     render(taskContainer, task);
   }
 
