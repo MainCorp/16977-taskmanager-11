@@ -367,12 +367,12 @@
     `);
   };
 
-  const render = (container, template, how = 'beforeend') => {
+  const render = (container, template, how = `beforeend`) => {
     container.insertAdjacentHTML(how, template);
   };
 
-  const main = document.querySelector('.main');
-  const contolsContainer = main.querySelector('.main__control');
+  const main = document.querySelector(`.main`);
+  const contolsContainer = main.querySelector(`.main__control`);
 
   const menu = templateCustomMenu();
   const filters = templateCustomFilters();
@@ -382,13 +382,13 @@
   const loadMoreBtn = templateCustomLoadMoreBtn();
 
   render(contolsContainer, menu);
-  render(contolsContainer, filters, 'afterend');
+  render(contolsContainer, filters, `afterend`);
   render(main, sort);
 
-  const boardContainer = main.querySelector('.board');
-  const taskContainer = main.querySelector('.board__tasks');
+  const boardContainer = main.querySelector(`.board`);
+  const taskContainer = main.querySelector(`.board__tasks`);
 
-  render(taskContainer, taskForm, 'afterbegin');
+  render(taskContainer, taskForm, `afterbegin`);
 
   for (let i = 0; i < 3; i++) {
     render(taskContainer, task);
