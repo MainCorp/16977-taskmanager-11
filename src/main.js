@@ -1,9 +1,7 @@
-"use strict";
-
 const COUNT_TASK = 3;
 
 import {templateCustomMenu} from "./components/menu.js";
-import {templateCustomFilters} from "./components/filter.js"
+import {templateCustomFilters} from "./components/filter.js";
 import {templateCustomSort} from "./components/sort.js";
 import {templateCustomTaskForm} from "./components/task-form.js";
 import {templateCustomTask} from "./components/task.js";
