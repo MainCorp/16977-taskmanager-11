@@ -1,4 +1,4 @@
-export const templateCustomMenu = () => {
+const templateCustomMenu = () => {
   return (
     `<section class="control__btn-wrap">
         <input
@@ -29,4 +29,8 @@ export const templateCustomMenu = () => {
         >
       </section>`
   );
+};
+
+export {
+  templateCustomMenu
 };

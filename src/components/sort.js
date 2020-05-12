@@ -1,4 +1,4 @@
-export const templateCustomSort = () => {
+const templateCustomSort = () => {
   return (`
     <section class="board container">
       <div class="board__filter-list">
@@ -10,4 +10,8 @@ export const templateCustomSort = () => {
       <div class="board__tasks">
       </div>
   `);
+};
+
+export {
+  templateCustomSort
 };
