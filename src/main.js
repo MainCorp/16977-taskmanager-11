@@ -59,7 +59,7 @@ const loadMoreBtn = document.querySelector(`.load-more`);
 if (loadMoreBtn) {
   loadMoreBtn.addEventListener(`click`, () => {
     const prevTaskCount = showTaskCount;
-    showTaskCount = showTaskCount + SHOW_TASK_BT_BTN;
+    showTaskCount += SHOW_TASK_BT_BTN;
 
     tasks.slice(prevTaskCount, showTaskCount).forEach((item) => {
       render(taskContainer, templateCustomTask(item));

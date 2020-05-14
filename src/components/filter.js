@@ -7,27 +7,30 @@ const validCurrentFilter = (tasks, name) => {
       break;
     case `overdue`:
       const sumDeadlineDay = tasks.filter((task) => {
-        const isDate = task.dueDate instanceof Date;
+        const date = task.dueDate;
+        const isDate = date instanceof Date;
 
-        if (isDate && !!task.dueDate) {
-          return task.dueDate < new Date();
-        } else {
-          return false;
-        }
+        const now = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const taskDate = isDate ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : false;
+
+        return isDate ? taskDate.getTime() <= today.getTime() : false;
       });
 
       num = sumDeadlineDay.length;
       break;
     case `today`:
       const sumToday = tasks.filter((task) => {
-        const isDate = task.dueDate instanceof Date;
+        const date = task.dueDate;
+        const isDate = date instanceof Date;
 
-        if (isDate && !!task.dueDate) {
-          return (task.dueDate).toLocaleDateString() === (new Date()).toLocaleDateString();
-        } else {
-          return false;
-        }
+        const now = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const taskDate = isDate ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : false;
+
+        return isDate ? taskDate.getTime() === today.getTime() : false;
       });
+
       num = sumToday.length;
       break;
     case `favorites`:

@@ -11,8 +11,8 @@ const templateCustomTask = (data) => {
 
   const isDate = data.dueDate instanceof Date;
 
-  const date = !!data.dueDate && isDate ? `${data.dueDate.getDate()} ${MONTHS[data.dueDate.getMonth()]}` : ``;
-  const time = !!data.dueDate && isDate ? `${data.dueDate.getHours()}:${data.dueDate.getMinutes()}` : ``;
+  const date = isDate ? `${data.dueDate.getDate()} ${MONTHS[data.dueDate.getMonth()]}` : ``;
+  const time = isDate ? `${data.dueDate.getHours()}:${data.dueDate.getMinutes()}` : ``;
 
   const isDeadline = isDate && data.dueDate < Date.now() ? `card--deadline` : ``;
   const isRepeat = Object.values(repeatingDays).some(Boolean) ? `card--repeat` : ``;
