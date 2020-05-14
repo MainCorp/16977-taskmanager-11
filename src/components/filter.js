@@ -14,7 +14,7 @@ const validCurrentFilter = (tasks, name) => {
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         const taskDate = isDate ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : false;
 
-        return isDate ? taskDate.getTime() <= today.getTime() : false;
+        return isDate && taskDate.getTime() <= today.getTime();
       });
 
       num = sumDeadlineDay.length;
@@ -28,7 +28,7 @@ const validCurrentFilter = (tasks, name) => {
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         const taskDate = isDate ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : false;
 
-        return isDate ? taskDate.getTime() === today.getTime() : false;
+        return isDate && taskDate.getTime() === today.getTime();
       });
 
       num = sumToday.length;
