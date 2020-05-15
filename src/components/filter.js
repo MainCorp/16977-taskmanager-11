@@ -1,3 +1,18 @@
+const makeDate = (task) => {
+  const date = task.dueDate;
+  const isDate = date instanceof Date;
+
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const taskDate = isDate ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : false;
+
+  return {
+    isDate,
+    taskDate,
+    today
+  };
+};
+
 const validCurrentFilter = (tasks, name) => {
   let num;
 
@@ -7,12 +22,7 @@ const validCurrentFilter = (tasks, name) => {
       break;
     case `overdue`:
       const sumDeadlineDay = tasks.filter((task) => {
-        const date = task.dueDate;
-        const isDate = date instanceof Date;
-
-        const now = new Date();
-        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        const taskDate = isDate ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : false;
+        const {isDate, taskDate, today} = makeDate(task);
 
         return isDate && taskDate.getTime() <= today.getTime();
       });
@@ -21,12 +31,7 @@ const validCurrentFilter = (tasks, name) => {
       break;
     case `today`:
       const sumToday = tasks.filter((task) => {
-        const date = task.dueDate;
-        const isDate = date instanceof Date;
-
-        const now = new Date();
-        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        const taskDate = isDate ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : false;
+        const {isDate, taskDate, today} = makeDate(task);
 
         return isDate && taskDate.getTime() === today.getTime();
       });
